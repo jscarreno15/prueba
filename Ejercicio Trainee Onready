@@ -1,0 +1,59 @@
+let vehiculos = [{
+    marca: 'Peugeot',
+    modelo: '206',
+    puertas: 4,
+    precio: 200000.00
+}, {
+    marca: 'Honda',
+    modelo: 'titan',
+    cilindrada: '125cc',
+    precio: 60000.00
+}, {
+    marca: 'Peugeot',
+    modelo: '208',
+    puertas: 5,
+    precio: 250000.00
+}, {
+    marca: 'Yamaha',
+    modelo: 'YBR',
+    cilindrada: '160cc',
+    precio: 80500.50
+}];
+
+function primera() {
+    for (let i = 0; i < vehiculos.length; i++) {
+        if (vehiculos[i].puertas)
+            console.log('Marca:', vehiculos[i].marca, '// Modelo:', vehiculos[i].modelo, '// Puertas:', vehiculos[i].puertas, '// Precio: $', vehiculos[i].precio);
+        else
+            console.log('Marca:', vehiculos[i].marca, '// Modelo:', vehiculos[i].modelo, '// cilindrada:', vehiculos[i].cilindrada, '// Precio: $', vehiculos[i].precio);
+
+    }
+}
+
+function segunda() {
+    for (let i = 0; i < vehiculos.length; i++) {
+        var mayor = vehiculos[0].precio;
+        var menor = vehiculos[0].precio;
+        if (mayor < vehiculos[i].precio)
+            var p = i;
+        if (menor > vehiculos[i].precio)
+            var m = i;
+        if (vehiculos[i].modelo.indexOf('Y') != -1 || vehiculos[i].modelo.indexOf('y') != -1) {
+            var q = i;
+        }
+    }
+    console.log('=============================', '\nVehículo más caro: ', vehiculos[p].marca, vehiculos[p].modelo, '\nVehículo más barato: ', vehiculos[m].marca, vehiculos[m].modelo, '\nVehículo que contiene en el modelo la letra ‘Y’:', vehiculos[q].marca, vehiculos[q].modelo, '$', vehiculos[q].precio);
+}
+
+
+function ordenar() {
+    vehiculos.sort((a, b) => b.precio - a.precio)
+    console.log('=============================\nVehículos ordenados por precio de mayor a menor: ');
+    for (let i = 0; i < vehiculos.length; i++) {
+        console.log(vehiculos[i].marca, vehiculos[i].modelo);
+    }
+}
+
+primera()
+segunda()
+ordenar()
